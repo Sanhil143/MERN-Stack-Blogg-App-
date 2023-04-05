@@ -1,1 +1,1 @@
-# node-express-mongo-boilerplate
+# MERN-Blog-App

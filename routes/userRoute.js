@@ -8,14 +8,14 @@ const userController = new UserController();
  * @desc    Register User
  * @access  Public
  */
-router.post("/",userController.createUser.bind(userController));
+router.post("/",userController.createUser.bind());
 
 /**
  * @route   POST /signin
  * @desc    Login User
  * @access  Public
  */
-router.post('/signin',userController.loginUser.bind(userController));
+router.post('/signin',userController.loginUser.bind());
 
 
 module.exports = router;
