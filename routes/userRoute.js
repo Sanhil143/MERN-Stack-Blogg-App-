@@ -18,7 +18,4 @@ router.post("/",userController.createUser.bind(userController));
 router.post('/signin',userController.loginUser.bind(userController));
 
 
-
-
-
 module.exports = router;
