@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 let config = {};
-
-// Application Environment
+    
+// Application Environment 
 const appEnv = process.env.APP_ENV;
 
 // Get document, or throw exception on error

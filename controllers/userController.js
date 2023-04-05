@@ -1,6 +1,8 @@
 const BaseController = require("./baseController");
 const userModel = require('../models/userModel')
+//Packages
 const cryptoJs = require('crypto-js')
+const jwt = require('jsonwebtoken')
 
 
 
@@ -44,14 +46,26 @@ class UserController extends BaseController {
     let data = req.body;
     //Destructuring
     const {email, password} = data;
-
     if(!email){
-      return res.status(400).send({status:false, message:"please provide your email!"})
+      return res.status(400).send({status:false, message:"please provide your email!"});
     }
     if(!password){
-      return res.status(400).send({status:false, message:"please provide your passsword!"})
+      return res.status(400).send({status:false, message:"please provide your passsword!"});
     }
-    
+    let verifyEmail = await userModel.findOne({email:email});
+    if(!verifyEmail){
+      return res.status(400).send({status:false, message:"Please enter your valid email!"});
+    }
+    let hashPass = cryptoJs.AES.decrypt(verifyEmail.password, 'Sanhil');
+    let mainPass = hashPass.toString(cryptoJs.enc.Utf8);
+
+    if(mainPass !== password){
+      return res.status(400).send({status:false, message:"Please enter your valid password"});
+    }
+    let token = jwt.sign({userId:verifyEmail._id}, "Sanhil");
+    let container = {userId:verifyEmail._id, Token:token};
+
+    return res.status(200).send({status:true, message:"Account successfully login!", data:container});
   }
 }
 
