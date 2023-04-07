@@ -7,7 +7,8 @@ const blogSchema = new mongoose.Schema({
       },
       userId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'blogUser'
+            ref: 'blogUser',
+            required:true
       },
       category: {
             type: String,
@@ -23,11 +24,11 @@ const blogSchema = new mongoose.Schema({
       },
       publishedAt: {
             type: Date,
-            default: Date.now
+            default: Date.now()
       },
       isPublished: {
             type: Boolean,
-            default: false
+            default: true
       }
 }, { timestamps: true });
 
