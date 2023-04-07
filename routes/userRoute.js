@@ -1,5 +1,5 @@
 const router = require("express")()
-
+const Middleware = require('../middlewares/auth')
 const UserController = require("../controllers/userController");
 const userController = new UserController();
 
@@ -18,7 +18,7 @@ router.post("/signup",userController.createUser.bind());
 router.post('/signin',userController.loginUser.bind());
 
 
-// /**
+// /** 
 //  * @route   POST /signin
 //  * @desc    Login User
 //  * @access  Public

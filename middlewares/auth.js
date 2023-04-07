@@ -1,15 +1,15 @@
 const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+const {isValidId} = require('../validations/validation')
 
 
-const auth = (req, res, next) => {
-      let token = req.headers('x-auth-key');
+const authentication = (req, res, next) => {
+      let token = req.header('x-auth-key');
       if (!token) {
             return res.status(401).send({ status: false, message: "token is missing, Authentication denied!" });
       }
       try {
             let decoded = jwt.verify(token, 'Sanhil');
-            req.user = decoded.user;
+            req.userId = decoded.userId;
             next()
       } catch (err) {
             return res.status(500).send({ status: false, message: err.message });
@@ -23,11 +23,13 @@ const authorisation = (req, res, next) => {
             if(!userId){
                   return res.status(400).send({status:false, message:'userId is required'});
             }
-            if (!mongoose.Schema.Types.ObjectId(userId)) {
+            if (!isValidId(userId)) {
                   return res.status(400).send({ status: false, message: 'invalid userId' })
             }
-            if(req.user !== userId){
-                  return res.status(403).send({status:false,message:'Authenticatio denied'})
+            console.log(req.userId);
+
+            if(req.userId !== userId){
+                  return res.status(403).send({status:false,message:'Authorization denied'})
             }else{
                   next();
             }
@@ -38,4 +40,4 @@ const authorisation = (req, res, next) => {
 }
 
 
-module.exports = { auth, authorisation }
+module.exports = { authentication, authorisation }
