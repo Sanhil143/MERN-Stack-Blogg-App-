@@ -56,6 +56,9 @@ class BlogController extends baseController {
                         {$set:{isDeleted:true, deletedAt:Date.now()}})
                   if(!deleteData){
                         return res.status(404).send({status:false, message:'resource not found to be deleted'})
+                  }
+                  if(deleteData.isDeleted == true){
+                        return res.status(400).send({status:false, message:'already deleted'})
                   } 
                   return res.status(200).send({status:true, message:'deleted successfullty'})     
             }catch(err){
