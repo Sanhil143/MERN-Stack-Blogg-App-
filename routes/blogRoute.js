@@ -11,14 +11,21 @@ const blogController = new BlogController();
  */
 router.post('/createBlogs',authentication,authorisation,blogController.createBlog.bind())
 
-
 //Public api
+
 /**
  * @route        GET
  * @description  Fetch single doc
  * @access       Public
  */
 router.get('/:blogId',blogController.getBlog.bind());
+
+/**
+ * @route       GET
+ * @description Fetch doc by filter
+ * @access      Public
+ */
+router.get('/', blogController.getQueryBlog.bind());
 
 
 module.exports = router;  
