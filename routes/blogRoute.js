@@ -19,6 +19,13 @@ router.post('/createBlogs',authentication,authorisation,blogController.createBlo
  */
 router.put('/:userId/:blogId', authentication,authorisation, blogController.updateBlog.bind())
 
+/**
+ * @route DELETE
+ * @description Delete blog
+ * @access Private
+ */
+router.delete('/:userId/:blogId', authentication,authorisation, blogController.deleteBlog.bind())
+
 //Public api
 /**
  * @route        GET
