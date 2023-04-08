@@ -11,8 +11,15 @@ const blogController = new BlogController();
  */
 router.post('/createBlogs',authentication,authorisation,blogController.createBlog.bind())
 
-//Public api
 
+/**
+ * @route       PUT
+ * @description Update blog
+ * @access      Private 
+ */
+router.put('/:userId/:blogId', authentication,authorisation, blogController.updateBlog.bind())
+
+//Public api
 /**
  * @route        GET
  * @description  Fetch single doc
