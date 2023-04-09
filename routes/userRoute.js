@@ -18,12 +18,12 @@ router.post("/signup",userController.createUser.bind());
 router.post('/signin',userController.loginUser.bind());
 
 
-// /** 
-//  * @route   POST /signin
-//  * @desc    Login User
-//  * @access  Public
-//  */
-// router.post('/signin',userController.loginUser.bind());
+/** 
+ * @route   GET
+ * @desc    Get all user
+ * @access  Public
+ */
+router.post('/signin',userController.loginUser.bind());
 
 
 module.exports = router;

@@ -9,9 +9,11 @@ class CommentController extends baseController {
             super(commentModel, blogModel)
       }
       async createComment(req, res) {
-            let blogId = req.params.blogId;
             let data = req.body;
-
+            if (!data) {
+                  return res.status(400).send({ status: false, message: 'provide data' })
+            }
+            const {comment,commentedBy,blogId} = data
             if (!blogId) {
                   return res.status(400).send({ status: false, message: 'blogId is required' })
             }
@@ -22,8 +24,19 @@ class CommentController extends baseController {
                   if (!findBlog && findBlog == null) {
                         return res.status(400).send({ status: false, message: 'Blog has been deleted' })
                   }
-            if (!data.comment) {
+            if (commentedBy.trim() !== undefined) {
+                  if (commentedBy === Number && commentedBy === Object) {
+                        return res.status(400).send({ status: false, message: 'please enter your valid name' })
+                  }
+            }
+            if (!comment) {
                   return res.status(400).send({ status: false, message: 'comment is required' })
+            }
+            if (comment.trim() !== undefined) {
+                  if (commentedBy === Number && commentedBy === Object) {
+                        return res.status(400).send({ status: false, message: 'please enter your valid name' })
+                  }
+                  data.comment = comment.toLowerCase()
             }
             data.comment.toLowerCase();
             let saved = await commentModel.create(data);
@@ -72,7 +85,12 @@ class CommentController extends baseController {
                         }
                         comment = comment.toLowerCase()
                   }
-                  let updated = await commentModel.findOneAndUpdate({_id:commentId,isDeleted:false},{$set:{}})
+                  let updated = await commentModel.findOneAndUpdate({_id:commentId,isDeleted:false},
+                        {$set:{...data,updatedAt:Date.now()}},{new:true})
+                   if(!updated && updated == null){
+                        return res.status(404).send({status:false, message:'comment not found'})
+                   }     
+                  return res.status(200).send({status:true, message:'comment updated successfully',data:updated})      
             } catch (err) {
                   return res.status(500).send({ status: false, message: err.message })
             }
@@ -101,7 +119,7 @@ class CommentController extends baseController {
                         return res.status(400).send({ status: false, message: 'enter valid commentId' })
                   }
                   let deletedComm = await commentModel.findByIdAndUpdate({ _id: commentId }, { $set: { isDeleted: true, deleteAt: Date.now() } });
-                  if (deletedComm == null) {
+                  if (!deletedComm && deletedComm == null) {
                         return res.status(404).send({ status: false, message: 'resource not found' })
                   }
                   if (deletedComm.isDeleted == true) {

@@ -1,11 +1,12 @@
 const baseController = require('../controllers/baseController');
 const blogModel = require('../models/blogModel');
+const commentModel = require('../models/commentModel');
 const { isValidId } = require('../validations/validation')
 
 
 class BlogController extends baseController {
       constructor() {
-            super(blogModel)
+            super(blogModel,commentModel)
       }
       async createBlog(req, res) {
             let data = req.body;
@@ -79,11 +80,14 @@ class BlogController extends baseController {
                   if (!isValidId(blogId)) {
                         return res.status(400).send({ status: false, message: 'invalid blogId' })
                   }
-                  let findData = await blogModel.findOne({ _id: blogId })
+                  let findData = await blogModel.findOne({ _id: blogId }).lean()
 
                   if (findData == null || findData.isDeleted == true || findData.isPublished == false) {
                         return res.status(404).send({ status: false, message: 'resource is not available' })
                   }
+                  let commentData = await commentModel.find({blogId:findData._id,isDeleted:false})
+                  .select({createdAt:0,updatedAt:0,__v:0})
+                  findData.commentData = commentData;
                   return res.status(200).send({ status: true, data: findData })
 
             } catch (err) {

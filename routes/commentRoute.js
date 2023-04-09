@@ -8,15 +8,22 @@ const commentController = new CommentController()
  * @description  Create comment
  * @access       Public
  */
-router.post('/:blogId',commentController.createComment.bind())
+router.post('/', commentController.createComment.bind())
 
+
+/**
+ * @route       PUT
+ * @description Update comment
+ * @access      Public
+ */
+router.put('/:blogId/:commentId' , commentController.updateComment.bind())
 
 /**
  * @route        DELETE
  * @description  Delete comment
  * @access       Public
  */
-router.delete('/:blogId', commentController.deleteComment.bind())
+router.delete('/:blogId/:commentId', commentController.deleteComment.bind())
 
 
 
