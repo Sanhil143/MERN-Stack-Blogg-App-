@@ -18,6 +18,10 @@ class CommentController extends baseController {
             if (!isValidId(blogId)) {
                   return res.status(400).send({ status: false, message: 'enter valid blogId' })
             }
+            let findBlog = await blogModel.findOne({ _id: blogId, isDeleted: false })
+                  if (!findBlog && findBlog == null) {
+                        return res.status(400).send({ status: false, message: 'Blog has been deleted' })
+                  }
             if (!data.comment) {
                   return res.status(400).send({ status: false, message: 'comment is required' })
             }
@@ -34,13 +38,24 @@ class CommentController extends baseController {
 
       async updateComment(req, res) {
             try {
-                  let blogId = req.params.blogId
+                  let blogId = req.params.blogId;
+                  let commentId = req.params.commentId;
                   let data = req.body;
                   if (!blogId) {
                         return res.status(400).send({ status: false, message: 'blogId is required' })
                   }
                   if (!isValidId(blogId)) {
                         return res.status(400).send({ status: false, message: 'enter valid blogId' })
+                  }
+                  let findBlog = await blogModel.findOne({ _id: blogId, isDeleted: false })
+                  if (!findBlog && findBlog == null) {
+                        return res.status(400).send({ status: false, message: 'Blog has been deleted' })
+                  }
+                  if (!commentId) {
+                        return res.status(400).send({ status: false, message: 'commentId is required' })
+                  }
+                  if (!isValidId(commentId)) {
+                        return res.status(400).send({ status: false, message: 'enter valid commentId' })
                   }
                   if (!data) {
                         return res.status(400).send({ status: false, message: 'provide data for updation' })
@@ -57,6 +72,7 @@ class CommentController extends baseController {
                         }
                         comment = comment.toLowerCase()
                   }
+                  let updated = await commentModel.findOneAndUpdate({_id:commentId,isDeleted:false},{$set:{}})
             } catch (err) {
                   return res.status(500).send({ status: false, message: err.message })
             }
@@ -74,9 +90,9 @@ class CommentController extends baseController {
                   if (!isValidId(blogId)) {
                         return res.status(400).send({ status: false, message: 'enter valid blogId' })
                   }
-                  let check = await blogModel.findOne({_id:blogId, isDeleted:false})
-                  if(!check){
-                        return res.status(400).send({status:false, message:''})
+                  let findBlog = await blogModel.findOne({ _id: blogId, isDeleted: false })
+                  if (!findBlog && findBlog == null) {
+                        return res.status(400).send({ status: false, message: 'Blog has been deleted' })
                   }
                   if (!commentId) {
                         return res.status(400).send({ status: false, message: 'commentId is required' })
