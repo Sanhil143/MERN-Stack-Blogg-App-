@@ -11,5 +11,13 @@ const commentController = new CommentController()
 router.post('/:blogId',commentController.createComment.bind())
 
 
+/**
+ * @route        DELETE
+ * @description  Delete comment
+ * @access       Public
+ */
+router.delete('/:blogId', commentController.deleteComment.bind())
+
+
 
 module.exports = router;
