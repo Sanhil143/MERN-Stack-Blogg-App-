@@ -1,7 +1,7 @@
 require("dotenv").config({ path: "./config/.env" });
-
-const express = require("express");
 const { appConfig } = require("./config/config");
+const express = require("express");
+const cors = require('cors')
 
 const connectDatabase = require("./config/database");
 
@@ -16,6 +16,7 @@ connectDatabase();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
+app.use(cors());
 
 // Server Check
 app.get("/", (req, res) => res.send("API Running"));
