@@ -19,7 +19,7 @@ export const loadUser = () => async (dispatch) => {
   if (token) setAuthToken(token);
 
   try {
-    const res = await axios.get(`${appConfig.API_URL}/api/auth`);
+    const res = await axios.get(`${appConfig.API_URL}/users/getUser`);
 
     dispatch({
       type: USER_LOADED,
@@ -43,7 +43,7 @@ export const register =
     const body = JSON.stringify({ firstName,lastName, email, password });
     try {
       const res = await axios.post(
-        `${appConfig.API_URL}/api/user`,
+        `${appConfig.API_URL}/users/signup`,
         body,
         config
       );
@@ -72,7 +72,7 @@ export const login = (email, password) => async (dispatch) => {
   };
   const body = JSON.stringify({ email, password });
   try {
-    const res = await axios.post(`${appConfig.API_URL}/api/auth`, body, config);
+    const res = await axios.post(`${appConfig.API_URL}/users/signin`, body, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
@@ -88,7 +88,7 @@ export const login = (email, password) => async (dispatch) => {
       type: LOGIN_FAIL,
     });
   }
-};
+}; 
 
 // Logout
 export const logout = () => (dispatch) => {

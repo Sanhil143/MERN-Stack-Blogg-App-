@@ -4,7 +4,6 @@ import { getPosts } from "../../scripts/dashboard";
 
 export default function Dashboard() {
   const [posts, setPosts] = useState([]);
-  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     getPosts()
