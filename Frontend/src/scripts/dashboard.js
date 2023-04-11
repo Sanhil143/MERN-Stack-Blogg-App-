@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { appConfig } from "../config/config";
 
-export async function getPosts() {
+export async function getBlogs() {
   const config = {
     headers: {
       "Content-Type": "application/json",
