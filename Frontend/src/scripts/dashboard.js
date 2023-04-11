@@ -3,13 +3,9 @@ import axios from "axios";
 import { appConfig } from "../config/config";
 
 export async function getBlogs() {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      "x-auth-token": localStorage.getItem("token"),
-    },
-  };
-  const res = await axios.get(`${appConfig.API_URL}/blogs/`, config);
+ 
+  
+  const res = await axios.get(`${appConfig.API_URL}/blogs/`);
   return res;
 }
 

@@ -14,6 +14,7 @@ import Dashboard from "./components/layout/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 import "./App.css";
+import HomePage from "./pages/HomePage";
 
 function App() {
   useEffect(() => {
@@ -26,8 +27,9 @@ function App() {
         {/* <Navbar /> */}
         <section>
           <Switch>
-            <PrivateRoute exact path="/" component={Dashboard} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            {/* <Route exact path="/" component = {HomePage}/> */}
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
           </Switch>

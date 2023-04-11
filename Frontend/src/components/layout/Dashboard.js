@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-
+import Header from "./header";
 import { getBlogs } from "../../scripts/dashboard";
 
 export default function Dashboard() {
-  const [posts, setPosts] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     getBlogs()
       .then((response) => {
-        setPosts(response.data.data);
+        setBlogs(response.data.data);
         console.log(response.data);
       })
       .catch((err) => console.log(err));
@@ -16,8 +16,9 @@ export default function Dashboard() {
 
   return (
     <div>
-      {posts.length > 0 &&
-        posts.map((post) => {
+    <Header/>
+      {blogs.length > 0 &&
+        blogs.map((post) => {
           const { title, category } = post;
           return (
             <div key={Math.random()}>

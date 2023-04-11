@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Header from '../layout/header' 
+
+
 import { login } from "../../actions/auth";
 
 const Login = ({ login, isAuthenticated }) => {
@@ -27,6 +30,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
+    <Header/>
       <div className="flex flex-col justify-center items-center h-screen">
         <h2 className="text-xl font-bold mb-4">Login</h2>
         <form

@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
+import Header from "../layout/header";
 import { register } from "../../actions/auth";
 
 const Register = ({ register, isAuthenticated }) => {
@@ -32,6 +32,7 @@ const Register = ({ register, isAuthenticated }) => {
 
   return (
     <Fragment>
+    <Header/>
       <div className="flex flex-col justify-center items-center h-screen">
         <h2 className="text-xl font-bold mb-4">Sign In</h2>
         <form
