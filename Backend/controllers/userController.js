@@ -67,6 +67,17 @@ class UserController extends BaseController {
 
     return res.status(200).send({status:true, message:"Account successfully login!", data:container});
   }
+
+
+  async getUser(req,res){
+    try{
+      let userId = req.userId
+      let findData = await userModel.findById(userId).select('-password')
+      return res.status(200).send({status:true, data:findData})
+    }catch(err){
+      return res.status(500).send({status:false, message:err.message})
+    }
+  }
 }
 
 module.exports = UserController;

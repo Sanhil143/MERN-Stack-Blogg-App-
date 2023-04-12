@@ -23,7 +23,7 @@ router.post('/signin',userController.loginUser.bind());
  * @desc    Get all user
  * @access  Public
  */
-router.post('/signin',userController.loginUser.bind());
+router.get('/getUser',Middleware.authentication,userController.getUser.bind());
 
 
 module.exports = router;
