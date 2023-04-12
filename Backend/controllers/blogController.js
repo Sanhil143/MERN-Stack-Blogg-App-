@@ -1,4 +1,5 @@
 const baseController = require('../controllers/baseController');
+const userModel = require('../models/userModel')
 const blogModel = require('../models/blogModel');
 const commentModel = require('../models/commentModel');
 const { isValidId } = require('../validations/validation')
@@ -21,6 +22,7 @@ class BlogController extends baseController {
                   return res.status(400).send({ status: false, message: 'category is required' });
             }
             data.category = category.toLowerCase()
+            data.userId = req.userId;
             let savedData = await blogModel.create(data);
             return res.status(201).send({ status: true, message: 'blog create successfully!', data: savedData })
       }
@@ -111,16 +113,12 @@ class BlogController extends baseController {
                         if (userId !== undefined) {
                               obj.userId = userId;
                         }
-                        let findData = await blogModel.find(obj)
+                        let findData = await blogModel.find(obj).sort({publishedAt:-1})
                         if (findData.length == 0) {
                               return res.status(404).send({ status: false, message: 'resource not found' })
                         }
                         return res.status(200).send({ status: true, message: 'blogs', data: findData })
-                  }else{
-                        let findData = await blogModel.find()
-                        if (findData.length == 0) {
-                              return res.status(404).send({ status: false, message: 'resource not found' })
-                        }
+                  
                         return res.status(200).send({ status: true, message: 'blogs', data: findData })
                   }
             } catch (err) {

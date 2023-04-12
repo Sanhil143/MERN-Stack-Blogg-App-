@@ -9,12 +9,16 @@ import { loadUser } from "./actions/auth";
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Dashboard from "./components/layout/Dashboard";
+import Blogs from "./components/layout/blogs";
 import HomePage from '../src/pages/HomePage'
 
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 import "./App.css";
+import Navbar from "./components/layout/navbar";
+import CreateBlog from "./components/layout/createBlog";
+import Dashboard from "./components/layout/dashboard";
+import Logout from "./components/layout/logout";
 
 
 function App() {
@@ -31,10 +35,14 @@ function App() {
             {/* <Route exact path="/" component = {HomePage}/> */}
             {/* <Route exact path="/" component={Dashboard} /> */}
             <Route exact path="/home" component={HomePage} />
+            <Route exact path="/nav" component={Navbar} />
             <Route exact path="/" component={HomePage} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/blogs" component={Blogs} />
+            <PrivateRoute exact path="/createBlog" component={CreateBlog} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
           </Switch>
         </section>
       </Fragment>

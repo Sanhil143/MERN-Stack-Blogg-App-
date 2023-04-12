@@ -9,7 +9,7 @@ const blogController = new BlogController();
  * @description Create Blog
  * @access      Private
  */
-router.post('/createBlogs',authentication,authorisation,blogController.createBlog.bind())
+router.post('/createBlogs',authentication,blogController.createBlog.bind())
 
 
 /**
