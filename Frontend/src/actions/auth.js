@@ -91,8 +91,7 @@ export const login = (email, password) => async (dispatch) => {
 }; 
 
 // Logout
-export const logout = () => (dispatch) => {
-  localStorage.removeItem(token)
-  dispatch({ type: LOGOUT });
-  
-};
+// export const Logout = () => (dispatch) => {
+//   localStorage.removeItem("token")
+//   dispatch({ type: LOGOUT });  
+// };

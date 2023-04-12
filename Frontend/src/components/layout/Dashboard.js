@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Header from "./header";
-import { getBlogs } from "../../scripts/dashboard";
+import { getBlogs} from "../../scripts/dashboard";
+import Logout from "./logout";
+
 
 export default function Dashboard() {
   const [blogs, setBlogs] = useState([]);
@@ -18,7 +19,8 @@ export default function Dashboard() {
 
   return (
     <div>
-    <Header/>
+    <Logout/>
+    {/* <button onClickCapture={Logout}>Logout</button> */}
       {blogs.length > 0 &&
         blogs.map((post) => {
           const { title, category } = post;
@@ -45,6 +47,7 @@ export default function Dashboard() {
             </div>
           );
         })}
+        
     </div>
   );
 }
