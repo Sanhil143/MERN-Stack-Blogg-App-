@@ -14,6 +14,8 @@ export default function Dashboard() {
       .catch((err) => console.log(err));
   }, []);
 
+  
+
   return (
     <div>
     <Header/>
@@ -37,7 +39,7 @@ export default function Dashboard() {
                     <li>Recipe Item 3</li>
                   </ul>
                   <p className="text-gray-700 text-base mt-4">Recipe Procedure:</p>
-                  <p className="text-gray-700 text-base">Developed by BlogMania</p>
+                  <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                 </div>
               </div>
             </div>

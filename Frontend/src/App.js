@@ -10,11 +10,12 @@ import { loadUser } from "./actions/auth";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/layout/Dashboard";
+import HomePage from '../src/pages/HomePage'
 
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 import "./App.css";
-import HomePage from "./pages/HomePage";
+
 
 function App() {
   useEffect(() => {
@@ -28,8 +29,10 @@ function App() {
         <section>
           <Switch>
             {/* <Route exact path="/" component = {HomePage}/> */}
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            {/* <Route exact path="/" component={Dashboard} /> */}
+            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
           </Switch>

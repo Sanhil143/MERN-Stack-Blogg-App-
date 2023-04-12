@@ -92,5 +92,7 @@ export const login = (email, password) => async (dispatch) => {
 
 // Logout
 export const logout = () => (dispatch) => {
+  localStorage.removeItem(token)
   dispatch({ type: LOGOUT });
+  
 };
