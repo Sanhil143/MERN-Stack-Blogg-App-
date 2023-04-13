@@ -5,7 +5,7 @@ const Homepage = () => {
     <>
 
       {/* Navbar  */}
-      <nav class="bg-white shadow">
+      <nav class="bg-gray-300">
         <div class="container mx-auto px-6 py-4">
           <div class="flex items-center justify-between">
             <div>
@@ -19,7 +19,7 @@ const Homepage = () => {
               </button>
             </div>
             <div class="hidden md:flex md:items-center">
-              <a href="/home" class="text-gray-600 hover:text-gray-900 mx-4">Home</a>
+              <a href="/blogs" class="text-gray-600 hover:text-gray-900 mx-4">Blogs</a>
               <a href="/Login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</a>
               <a href="/Register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</a>
             </div>
@@ -27,7 +27,7 @@ const Homepage = () => {
         </div>
         <div class="hidden md:hidden">
           <div class="px-2 pt-2 pb-3">
-            <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Home</a>
+            <a href="/createBlog" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Create Blog</a>
             <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">About</a>
             <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Contact</a>
           </div>

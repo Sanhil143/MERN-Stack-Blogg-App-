@@ -9,7 +9,7 @@ import { loadUser } from "./actions/auth";
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Blogs from "./components/layout/blogs";
+import Blogs from "./components/layout/getAllBlogs";
 import HomePage from '../src/pages/HomePage'
 
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -18,7 +18,7 @@ import "./App.css";
 import Navbar from "./components/layout/navbar";
 import CreateBlog from "./components/layout/createBlog";
 import Dashboard from "./components/layout/dashboard";
-import Logout from "./components/layout/logout";
+import UpdateBlog from "./components/layout/updateBlog";
 
 
 function App() {
@@ -38,11 +38,11 @@ function App() {
             <Route exact path="/nav" component={Navbar} />
             <Route exact path="/" component={HomePage} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/blogs" component={Blogs} />
+            <Route exact path="/blogs" component={Blogs} />
             <PrivateRoute exact path="/createBlog" component={CreateBlog} />
+            <PrivateRoute exact path="/updateBlog" component={UpdateBlog} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/logout" component={Logout} />
           </Switch>
         </section>
       </Fragment>

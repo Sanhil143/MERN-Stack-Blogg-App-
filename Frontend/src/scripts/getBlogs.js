@@ -9,4 +9,4 @@ export async function getBlogs() {
   return res;
 }
 
-export async function getReviews() {}
+
