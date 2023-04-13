@@ -32,17 +32,10 @@ const Dashboard = () => {
           <h1 class="text-2xl font-bold mb-8">My profile</h1>
           <div class="flex flex-col lg:flex-row gap-8">
             <div class="bg-white shadow-md p-6 flex-1">
-              <h2 class="text-lg font-bold mb-4">Total Posts</h2>
-              <p class="text-2xl font-bold">25</p>
+              <h2 class="text-lg font-bold mb-4">Hello🤡</h2>
+              <p class="text-2xl font-bold"></p>
             </div>
-            <div class="bg-white shadow-md p-6 flex-1">
-              <h2 class="text-lg font-bold mb-4">Total Categories</h2>
-              <p class="text-2xl font-bold">8</p>
-            </div>
-            <div class="bg-white shadow-md p-6 flex-1">
-              <h2 class="text-lg font-bold mb-4">Total Tags</h2>
-              <p class="text-2xl font-bold">12</p>
-            </div>
+            
           </div>
         </div>
       </div>

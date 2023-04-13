@@ -10,7 +10,7 @@ const authentication = (req, res, next) => {
       try {
             let decoded = jwt.verify(token, 'Sanhil');
             req.userId = decoded.userId;
-            console.log(req.userId);
+            // console.log(req.userId);
             next()
       } catch (err) {
             return res.status(500).send({ status: false, message: err.message });

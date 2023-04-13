@@ -85,7 +85,7 @@ class BlogController extends baseController {
       async getBlog(req, res) {
             try {
                   let blogId = req.params.blogId;
-                  console.log(blogId);
+                  
                   if (!blogId) {
                         return res.status(400).send({ status: false, message: 'blogId is required' })
                   }
@@ -129,7 +129,7 @@ class BlogController extends baseController {
                         }
                         return res.status(200).send({ status: true, message: 'blogs', data: findData })
                   
-                        return res.status(200).send({ status: true, message: 'blogs', data: findData })
+                        
                   }
             } catch (err) {
                   return res.status(500).send({ status: false, message: err.message });

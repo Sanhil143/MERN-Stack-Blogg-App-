@@ -1,6 +1,6 @@
 const router = require('express')();
 const BlogController = require('../controllers/blogController');
-const {authentication,authorisation} = require('../middlewares/auth')
+const {authentication,authorisation} = require('../middlewares/middle')
 
 const blogController = new BlogController();
 
@@ -32,7 +32,7 @@ router.delete('/:blogId', authentication, blogController.deleteBlog.bind())
  * @description  Fetch single doc
  * @access       Public
  */
-router.get('/:blogId',blogController.getBlog.bind());
+router.get('/:blogId',authentication,blogController.getBlog.bind());
 
 /**
  * @route       GET
