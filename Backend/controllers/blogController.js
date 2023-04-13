@@ -30,11 +30,16 @@ class BlogController extends baseController {
       async updateBlog(req, res) {
             let blogId = req.params.blogId;
             let data = req.body;
+            let userId = req.userId;
             if (!blogId || !isValidId(blogId)) {
                   return res.status(400).send({ status: false, message: 'blogId missing' })
             }
             if (!data) {
                   return res.status(400).send({ status: false, message: 'enter data for updation' })
+            }
+            let checkId = await userModel.findOne({_id:userId,isDeleted:false})
+            if(!checkId || checkId == null){
+                  return res.status(403).send({status:false, message:'Authorisation denied'})
             }
             const { title, category } = data;
             if (title !== undefined) {
@@ -47,8 +52,13 @@ class BlogController extends baseController {
             if (updateData == null) {
                   return res.status(400).send({ status: false, message: 'please enter valid blogId' })
             }
+            if(updateData.userId !== checkId._id){
+                  return res.status(403).send({status:false, message:'Authorisation denied'})
+            }
             return res.status(200).send({ status: true, message: 'data update successfully', data: updateData })
       }
+
+      
       async deleteBlog(req, res) {
             try {
                   let blogId = req.params.blogId;

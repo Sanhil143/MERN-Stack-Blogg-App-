@@ -10,6 +10,7 @@ const authentication = (req, res, next) => {
       try {
             let decoded = jwt.verify(token, 'Sanhil');
             req.userId = decoded.userId;
+            console.log(req.userId);
             next()
       } catch (err) {
             return res.status(500).send({ status: false, message: err.message });
@@ -26,7 +27,7 @@ const authorisation = (req, res, next) => {
             if (!isValidId(userId)) {
                   return res.status(400).send({ status: false, message: 'invalid userId' })
             }
-            console.log(req.userId);
+            
 
             if(req.userId !== userId){
                   return res.status(403).send({status:false,message:'Authorization denied'})
@@ -40,4 +41,4 @@ const authorisation = (req, res, next) => {
 }
 
 
-module.exports = { authentication, authorisation }
+module.exports = { authentication}
