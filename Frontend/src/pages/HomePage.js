@@ -9,7 +9,7 @@ const Homepage = () => {
         <div class="container mx-auto px-6 py-4">
           <div class="flex items-center justify-between">
             <div>
-              <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
+              <a href="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania  by Sanhil❤️</a>
             </div>
             <div class="flex md:hidden">
               <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">

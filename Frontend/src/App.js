@@ -17,14 +17,14 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import "./App.css";
 import Navbar from "./components/layout/navbar";
 import CreateBlog from "./components/layout/createBlog";
-import Dashboard from "./components/layout/dashboard";
+import Dashboard from "./components/layout/Dashboard";
 import UpdateBlog from "./components/layout/updateBlog";
 
 
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
-  }, []);
+  }, []); 
 
   return (
     <Provider store={store}>
