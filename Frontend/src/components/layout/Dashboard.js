@@ -12,7 +12,7 @@ const Dashboard = () => {
       <div class="flex flex-col lg:flex-row h-screen bg-gray-100">
         <div class="bg-white shadow-lg lg:w-64">
           <div class="flex justify-between items-center p-6">
-            <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
+            <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
             <button class="lg:hidden focus:outline-none">
               <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current text-gray-600 hover:text-gray-800">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z"></path>
@@ -21,6 +21,7 @@ const Dashboard = () => {
           </div>
           <nav class="text-gray-600">
             <a href="/blogs" class="block py-4 px-6 hover:bg-gray-200">Blogs</a>
+            <a href="/userBlog" class="block py-4 px-6 hover:bg-gray-200">My blogs</a>
             <a href="/createBlog" class="block py-4 px-6 hover:bg-gray-200">Add your blog</a>
             {/* <a href="#" class="block py-4 px-6 hover:bg-gray-200">Categories</a> */}
             {/* <a href="#" class="block py-4 px-6 hover:bg-gray-200">Tags</a> */}

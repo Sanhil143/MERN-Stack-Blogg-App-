@@ -2,9 +2,10 @@ import axios from "axios";
 
 import { appConfig } from "../../config/config";
 import { useState } from "react";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { Redirect,useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CreateBlog = () => {
+  const history = useHistory()
   const [title, setTitle] = useState("")
   const [category, setCategory] = useState("")
 
@@ -18,7 +19,11 @@ const CreateBlog = () => {
 
     await axios.post(`${appConfig.API_URL}/blogs/createBlogs`, blogData,
       { headers: { "x-auth-key": token } })
-      .then((res) => alert("blog created succesfully"))
+      .then((res) => {
+      alert("blog created succesfully");
+      // <Redirect to="/dashboard" />
+      history.push('/dashboard')
+    })
       .catch((err) => alert(err.message))
 
   }
