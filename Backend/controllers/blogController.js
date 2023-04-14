@@ -29,6 +29,7 @@ class BlogController extends baseController {
 
       async updateBlog(req, res) {
             let blogId = req.params.blogId;
+            console.log(req.params.blogId);
             let data = req.body;
             let userId = req.userId;
             if (!blogId || !isValidId(blogId)) {
@@ -76,6 +77,21 @@ class BlogController extends baseController {
                   return res.status(200).send({ status: true, message: 'deleted successfullty' })
             } catch (err) {
                   return res.status(500).send({ status: false, message: err.message })
+            }
+      }
+
+      async userBlog(req,res){
+            try{
+                  let userId = req.userId;
+
+                  let checkUser = await blogModel.find({userId:userId,isDeleted:false});
+                  if(!checkUser || checkUser === null){
+                        return res.status(400).send({status:false, message:"No blogs are there"})
+                  }
+                  
+                  return res.status(200).send({status:true, message:"blogs", data:checkUser})
+            }catch(err){
+                  return res.status(500).send({status:false, message:err.message})
             }
       }
 

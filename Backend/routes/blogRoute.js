@@ -26,6 +26,13 @@ router.put('/:blogId', authentication, blogController.updateBlog.bind())
  */
 router.delete('/:blogId', authentication, blogController.deleteBlog.bind())
 
+/**
+ * @route  GET
+ * @description fetchUserBlog
+ * @access Private
+ */
+router.get('/userBlogs', authentication, blogController.userBlog.bind());
+
 //Public api
 /**
  * @route        GET
