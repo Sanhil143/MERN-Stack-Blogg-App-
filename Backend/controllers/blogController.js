@@ -29,7 +29,6 @@ class BlogController extends baseController {
 
       async updateBlog(req, res) {
             let blogId = req.params.blogId;
-            console.log(req.params.blogId);
             let data = req.body;
             let userId = req.userId;
             if (!blogId || !isValidId(blogId)) {
@@ -52,9 +51,6 @@ class BlogController extends baseController {
             let updateData = await blogModel.findByIdAndUpdate({ _id: blogId, isDeleted: false }, { $set: { ...data } }, { new: true });
             if (updateData == null) {
                   return res.status(400).send({ status: false, message: 'please enter valid blogId' })
-            }
-            if(updateData.userId !== checkId._id){
-                  return res.status(403).send({status:false, message:'Authorisation denied'})
             }
             return res.status(200).send({ status: true, message: 'data update successfully', data: updateData })
       }
@@ -84,7 +80,7 @@ class BlogController extends baseController {
             try{
                   let userId = req.userId;
 
-                  let checkUser = await blogModel.find({userId:userId,isDeleted:false});
+                  let checkUser = await blogModel.find({userId:userId,isDeleted:false}).sort({publishedAt:-1});
                   if(!checkUser || checkUser === null){
                         return res.status(400).send({status:false, message:"No blogs are there"})
                   }
