@@ -34,7 +34,7 @@ const GetUserBlogs = () => {
                                                       <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                                                 </div>
                                                 <div class="flex justify-end mt-4">
-                                                      <a href="/blogs/:blogId" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
+                                                      <a href="/updateBlog" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
                                                             Update
                                                       </a>
                                                       <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

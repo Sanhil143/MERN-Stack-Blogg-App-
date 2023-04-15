@@ -1,7 +1,7 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom/cjs/react-router-dom.min"
-import { appConfig } from "../../config/config"
+// import axios from "axios"
+// import { useEffect, useState } from "react"
+// import { useParams } from "react-router-dom/cjs/react-router-dom.min"
+// import { appConfig } from "../../config/config"
 
 
 // const UpdateBlog = () => {
@@ -92,20 +92,23 @@ import { appConfig } from "../../config/config"
 //       )
 // }
 
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { appConfig } from "../../config/config"
 
 
+const UpdateBlog =  () => {
+      const {blogId}  = useParams()
+      console.log("useParams", blogId);
 
-const UpdateBlog = () => {
-      const params  = useParams()
-      console.log("useParams", params);
-
-      const blogId = params.blogId
+     
       const [title, setTitle] = useState("")
       const [category, setCategory] = useState("")
       let token = localStorage.getItem("token")
       
       useEffect(() => {
-        axios.get(`${appConfig.API_URL}/blogs/${blogId}`, {
+       axios.get(`${appConfig.API_URL}/blogs/${blogId}`, {
             headers: { "x-auth-key": token }
           })
           .then((res) => {
@@ -121,14 +124,14 @@ const UpdateBlog = () => {
         const newData = {}
         newData.title = title
         newData.category = category
-        axios.put(`${appConfig.API_URL}/blogs/${blogId}`, newData, {
+         axios.put(`${appConfig.API_URL}/blogs/${blogId}`, newData, {
             headers: { "x-auth-key": token }
           })
           .then((res) => {
             console.log(res.data)
             // optionally, you can redirect to the blog details page after the update
           })
-          .catch((err) => console.log(err))
+          .catch((err) => console.log('sanhil'))
       }
       
       return (

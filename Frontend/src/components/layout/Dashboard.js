@@ -1,18 +1,19 @@
 
-import { Link, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, Redirect,useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const Dashboard = () => {
+  let history = useHistory()
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    <Redirect to="/home"/>;
+      localStorage.removeItem("token");
+      history.push('/home');
   }
   return (
     <>
       <div class="flex flex-col lg:flex-row h-screen bg-gray-100">
         <div class="bg-white shadow-lg lg:w-64">
           <div class="flex justify-between items-center p-6">
-            <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
+            <a href="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
             <button class="lg:hidden focus:outline-none">
               <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current text-gray-600 hover:text-gray-800">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z"></path>

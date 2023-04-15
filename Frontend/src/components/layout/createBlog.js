@@ -29,7 +29,8 @@ const CreateBlog = () => {
   }
   const handleLogout = () => {
     localStorage.removeItem("token");
-    <Redirect to="/" />
+    // <Redirect to="/" />
+    history.push('/')
   }
   return (
     <>
@@ -38,7 +39,7 @@ const CreateBlog = () => {
         <div class="container mx-auto px-6 py-4">
           <div class="flex items-center justify-between">
             <div>
-              <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
+              <a href="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
             </div>
             <div class="flex md:hidden">
               <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -48,7 +49,7 @@ const CreateBlog = () => {
               </button>
             </div>
             <div class="hidden md:flex md:items-center">
-              <a href="/home" class="text-gray-600 hover:text-gray-900 mx-4">Home</a>
+              <a href="/userBlog" class="text-gray-600 hover:text-gray-900 mx-4">My blogs</a>
               <a href="/dashboard" class="text-gray-600 hover:text-gray-900 mx-4">Dashboard</a>
               <a href="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Log out</a>
             </div>
@@ -65,7 +66,7 @@ const CreateBlog = () => {
 
       {/* <Header/> */}
       <div className="flex flex-col justify-center items-center h-screen">
-        <h2 className="text-xl font-bold mb-4">BlogMania❤️</h2>
+        <h2 className="text-xl font-bold mb-4">Create your own blog❤️</h2>
         <form
           className="bg-blue-50 rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={createBlog}
