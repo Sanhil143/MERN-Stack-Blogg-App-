@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from "react";
 import { UserBlogs } from "../../scripts/userBlogs";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const GetUserBlogs = () => {
@@ -19,7 +18,7 @@ const GetUserBlogs = () => {
             <>
                   {blogs.length > 0 &&
                         blogs.map((post) => {
-                              const { title, category } = post;
+                              const { title, category,_id } = post;
                               return (
                                     <div key={Math.random()}>
                                           <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -34,7 +33,7 @@ const GetUserBlogs = () => {
                                                       <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                                                 </div>
                                                 <div class="flex justify-end mt-4">
-                                                      <a href="/updateBlog" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
+                                                      <a href={`/blogs/${_id}`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
                                                             Update
                                                       </a>
                                                       <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
