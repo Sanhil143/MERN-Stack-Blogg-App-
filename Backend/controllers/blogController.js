@@ -37,9 +37,9 @@ class BlogController extends baseController {
             if (!data) {
                   return res.status(400).send({ status: false, message: 'enter data for updation' })
             }
-            let checkId = await userModel.findOne({_id:userId,isDeleted:false})
-            if(!checkId || checkId == null){
-                  return res.status(403).send({status:false, message:'Authorisation denied'})
+            let checkId = await userModel.findOne({ _id: userId, isDeleted: false })
+            if (!checkId || checkId == null) {
+                  return res.status(403).send({ status: false, message: 'Authorisation denied' })
             }
             const { title, category } = data;
             if (title !== undefined) {
@@ -55,12 +55,17 @@ class BlogController extends baseController {
             return res.status(200).send({ status: true, message: 'data update successfully', data: updateData })
       }
 
-      
+
       async deleteBlog(req, res) {
             try {
                   let blogId = req.params.blogId;
+                  let userId = req.userId;
                   if (!blogId || !isValidId(blogId)) {
                         return res.status(400).send({ status: false, message: 'blogId missing' })
+                  }
+                  let checkId = await userModel.findOne({ _id: userId, isDeleted: false })
+                  if (!checkId || checkId == null) {
+                        return res.status(403).send({ status: false, message: 'Authorisation denied' })
                   }
                   let deleteData = await blogModel.findByIdAndUpdate({ _id: blogId, isDeleted: false },
                         { $set: { isDeleted: true, deletedAt: Date.now() } })
@@ -76,28 +81,28 @@ class BlogController extends baseController {
             }
       }
 
-      async userBlog(req,res){
-            try{
+      async userBlog(req, res) {
+            try {
                   let userId = req.userId;
 
-                  let checkUser = await blogModel.find({userId:userId,isDeleted:false}).sort({publishedAt:-1});
-                  if(!checkUser || checkUser === null){
-                        return res.status(400).send({status:false, message:"No blogs are there"})
+                  let checkUser = await blogModel.find({ userId: userId, isDeleted: false }).sort({ publishedAt: -1 });
+                  if (!checkUser || checkUser === null) {
+                        return res.status(400).send({ status: false, message: "No blogs are there" })
                   }
-                  
-                  return res.status(200).send({status:true, message:"blogs", data:checkUser})
-            }catch(err){
-                  return res.status(500).send({status:false, message:err.message})
+
+                  return res.status(200).send({ status: true, message: "blogs", data: checkUser })
+            } catch (err) {
+                  return res.status(500).send({ status: false, message: err.message })
             }
       }
 
 
 
       //public api
-      async getBlog(req, res) {
+      async getAllBlog(req, res) {
             try {
                   let blogId = req.params.blogId;
-                  
+
                   if (!blogId) {
                         return res.status(400).send({ status: false, message: 'blogId is required' })
                   }
@@ -135,13 +140,13 @@ class BlogController extends baseController {
                         if (userId !== undefined) {
                               obj.userId = userId;
                         }
-                        let findData = await blogModel.find(obj).sort({publishedAt:-1})
+                        let findData = await blogModel.find(obj).sort({ publishedAt: -1 })
                         if (findData.length == 0) {
                               return res.status(404).send({ status: false, message: 'resource not found' })
                         }
                         return res.status(200).send({ status: true, message: 'blogs', data: findData })
-                  
-                        
+
+
                   }
             } catch (err) {
                   return res.status(500).send({ status: false, message: err.message });

@@ -39,7 +39,7 @@ router.get('/userBlogs', authentication, blogController.userBlog.bind());
  * @description  Fetch single doc
  * @access       Public
  */
-router.get('/:blogId',authentication,blogController.getBlog.bind());
+router.get('/:blogId',authentication,blogController.getAllBlog.bind());
 
 /**
  * @route       GET
