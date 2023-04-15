@@ -45,11 +45,11 @@ export default function Blogs() {
           </div>
 
         </div>
-
+   </div>
 
         {blogs.length > 0 &&
           blogs.map((post) => {
-            const { title, category } = post;
+            const { title, category,comments } = post;
             return (
               <div key={Math.random()}>
                 <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -58,19 +58,13 @@ export default function Blogs() {
                       <div>
                         <div className="font-bold text-xl">{title}</div>
                         <p className="text-gray-700 text-base">{category}</p>
+                        <p className="text-gray-700 text-base">comments: {comments}</p>
                       </div>
                     </div>
-                    {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
+                    
                     <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                   </div>
-                  {/* <div class="flex justify-end mt-4">
-                    <a href="/updateBlog" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
-                      Update
-                    </a>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                      Delete
-                    </button>
-                  </div> */}
+                  
                 </div>
               </div>
 
@@ -78,24 +72,7 @@ export default function Blogs() {
             );
           })}
 
-      </div>
+      
     </div>
   );
 }
-
-<div class="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col lg:flex-row">
-  <img src="https://via.placeholder.com/800x400.png?text=Blog+Post+Image" alt="Blog Post Image" class="w-full lg:w-1/2"/>
-    <div class="px-6 py-4 flex-1">
-      <h2 class="text-2xl font-bold text-gray-800 mb-2">Blog Post Title</h2>
-      <p class="text-gray-600 mb-4">Published on <span class="font-bold">April 12, 2023</span></p>
-      <p class="text-gray-700 leading-relaxed">Lorem ipsum dolor sit amet.</p>
-      <div class="flex justify-end mt-4">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
-          Update
-        </button>
-        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          Delete
-        </button>
-      </div>
-    </div>
-</div>

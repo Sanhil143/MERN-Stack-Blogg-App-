@@ -21,12 +21,9 @@ const Dashboard = () => {
             </button>
           </div>
           <nav class="text-gray-600">
-            <a href="/blogs" class="block py-4 px-6 hover:bg-gray-200">Blogs</a>
+            <a href="/privateBlog" class="block py-4 px-6 hover:bg-gray-200">Blogs</a>
             <a href="/userBlog" class="block py-4 px-6 hover:bg-gray-200">My blogs</a>
-            <a href="/createBlog" class="block py-4 px-6 hover:bg-gray-200">Add your blog</a>
-            {/* <a href="#" class="block py-4 px-6 hover:bg-gray-200">Categories</a> */}
-            {/* <a href="#" class="block py-4 px-6 hover:bg-gray-200">Tags</a> */}
-            {/* <a href={Logout} class="block py-4 px-6 hover:bg-red-200">logout</a> */}
+            <a href="/createBlog" class="block py-4 px-6 hover:bg-gray-200">Add blog</a>
             <a href="#" onClick={handleLogout} class="block py-4 px-6 hover:bg-red-200">Logout</a>
           </nav>
         </div>
@@ -36,7 +33,9 @@ const Dashboard = () => {
             <div class="bg-white shadow-md p-6 flex-1">
               <h2 class="text-lg font-bold mb-4">Hello🤡</h2>
               <p class="text-2xl font-bold"></p>
+              
             </div>
+            
             
           </div>
         </div>

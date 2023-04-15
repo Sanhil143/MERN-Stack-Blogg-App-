@@ -114,9 +114,6 @@ const CreateBlog = () => {
               CreateBlog
             </button>
           </div>
-          {/* <div className="mt-4">
-                    Already have an account? <Link to="/login">Sign In</Link>
-                  </div> */}
         </form>
       </div>
     </>

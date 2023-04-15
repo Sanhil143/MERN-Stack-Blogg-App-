@@ -19,7 +19,9 @@ import Navbar from "./components/layout/navbar";
 import CreateBlog from "./components/layout/createBlog";
 import Dashboard from "./components/layout/Dashboard";
 import UpdateBlog from "./components/layout/updateBlog";
+import DeleteBlog from "./components/layout/deleteBlog";
 import GetUserBlogs from "./components/layout/getUserBlog";
+import PrivateBlog from "./components/layout/privateAllBlog";
 
 
 function App() {
@@ -41,8 +43,10 @@ function App() {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/blogs" component={Blogs} />
             <PrivateRoute exact path="/createBlog" component={CreateBlog} />
+            <PrivateRoute exact path="/privateBlog" component={PrivateBlog} />
             <PrivateRoute exact path="/userBlog" component={GetUserBlogs} />
-            <PrivateRoute exact path="/blogs/:blogId" component={UpdateBlog} />
+            <PrivateRoute exact path="/blogs/:blogId/update" component={UpdateBlog} />
+            <PrivateRoute exact path="/blogs/:blogId/delete" component={DeleteBlog} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
           </Switch>

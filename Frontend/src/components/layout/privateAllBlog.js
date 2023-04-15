@@ -1,31 +1,36 @@
-
 import React, { useEffect, useState } from "react";
+import { getBlogs } from "../../scripts/getBlogs";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { UserBlogs } from "../../scripts/userBlogs";
 
 
-const GetUserBlogs = () => {
-      const history = useHistory();
+
+
+export default function PrivateBlog() {
+      const history = useHistory()
       const [blogs, setBlogs] = useState([]);
 
       useEffect(() => {
-            UserBlogs()
-                  .then((res) => {
-                        setBlogs(res.data.data);
+            getBlogs()
+                  .then((response) => {
+                        setBlogs(response.data.data);
+                        console.log(response.data);
                   })
-                  .catch((err) => console.log(err))
+                  .catch((err) => console.log(err));
       }, []);
+
       const handleLogout = () => {
             localStorage.removeItem("token");
             history.push('/home');
       }
-
       return (
-            <>
+
+
+            <div>
+
                   <div class="container mx-auto px-6 py-4">
                         <div class="flex items-center justify-between">
                               <div>
-                                    <a href="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
+                                    <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
                               </div>
                               <div class="flex md:hidden">
                                     <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -36,15 +41,16 @@ const GetUserBlogs = () => {
                               </div>
                               <div class="hidden md:flex md:items-center">
                                     <a href="/dashboard" class="text-black-600 hover:text-black-900 mx-4">Dashboard</a>
-                                    <a href="/createBlog" class="text-black-600 hover:text-black-900 mx-4">Create blog</a>
+                                    <a href="/userBlog" class="text-black-600 hover:text-black-900 mx-4">My blogs</a>
                                     <a href="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Logout</a>
                               </div>
 
                         </div>
                   </div>
+
                   {blogs.length > 0 &&
                         blogs.map((post) => {
-                              const { title, category, _id } = post;
+                              const { title, category, comments } = post;
                               return (
                                     <div key={Math.random()}>
                                           <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -53,27 +59,21 @@ const GetUserBlogs = () => {
                                                             <div>
                                                                   <div className="font-bold text-xl">{title}</div>
                                                                   <p className="text-gray-700 text-base">{category}</p>
+                                                                  <p className="text-gray-700 text-base">comments: {comments}</p>
                                                             </div>
                                                       </div>
                                                       {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
                                                       <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                                                 </div>
-                                                <div class="flex justify-end mt-4">
-                                                      <a href={`/blogs/${_id}/update`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
-                                                            Update
-                                                      </a>
-                                                      <a href={`/blogs/${_id}/delete`} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                                            Delete
-                                                      </a>
-                                                </div>
+
                                           </div>
                                     </div>
 
 
                               );
-                        })};
-            </>
-      )
-}
+                        })}
 
-export default GetUserBlogs;
+
+            </div>
+      );
+}
