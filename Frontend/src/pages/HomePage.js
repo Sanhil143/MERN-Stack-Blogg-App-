@@ -1,5 +1,5 @@
 
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 const Homepage = () => {
   return (
     <>
@@ -19,15 +19,15 @@ const Homepage = () => {
               </button>
             </div>
             <div class="hidden md:flex md:items-center">
-              <a href="/blogs" class="text-gray-600 hover:text-gray-900 mx-4">Blogs</a>
-              <a href="/Login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</a>
-              <a href="/Register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</a>
+              <Link to="/blogs" class="text-gray-600 hover:text-gray-900 mx-4">Blogs</Link>
+              <Link to="/Login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</Link>
+              <Link to="/Register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</Link>
             </div>
           </div>
         </div>
         <div class="hidden md:hidden">
           <div class="px-2 pt-2 pb-3">
-            <a href="/createBlog" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Create Blog</a>
+            <Link to="/createBlog" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Create Blog</Link>
             <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">About</a>
             <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Contact</a>
           </div>
@@ -41,7 +41,7 @@ const Homepage = () => {
             <div className="md:w-1/2">
               <h1 className="text-4xl md:text-6xl text-white font-bold mb-4">Create a Beautiful Blog</h1>
               <p className="text-gray-400 mb-6">Share your thoughts, experiences and ideas with the world. Start your own blog today.</p>
-              <a href="/createBlog" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">Create a Blog</a>
+              <Link to="/createBlog" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">Create a Blog</Link>
             </div>
             <div className="md:w-1/2">
               <img src="https://picsum.photos/500/300" alt="Blog" className="rounded-lg shadow-lg" />
