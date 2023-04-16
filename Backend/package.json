@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "encrypt:config": "set TYPE='encrypt';set FILE_TO_BE_ENCRYPTED='./config/config.yml'; node crypt.js",
-    "decrypt:config": "set TYPE='decrypt';set FILE_TO_BE_DECRYPTED='./config/config.yml.enc'; node crypt.js"
+    "encrypt:config": "TYPE=encrypt FILE_TO_BE_ENCRYPTED='./config/default.json' node crypt.js",
+    "decrypt:config": "TYPE=decrypt FILE_TO_BE_DECRYPTED='./config/default.json.enc' node crypt.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
