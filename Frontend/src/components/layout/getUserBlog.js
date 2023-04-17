@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { UserBlogs } from "../../scripts/userBlogs";
 
 
@@ -25,8 +25,8 @@ const GetUserBlogs = () => {
                   <div class="container mx-auto px-6 py-4">
                         <div class="flex items-center justify-between">
                               <div>
-                                    <a href="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
-                              </div>
+                                    <Link to="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</Link>
+                           </div>
                               <div class="flex md:hidden">
                                     <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
                                           <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
@@ -35,10 +35,10 @@ const GetUserBlogs = () => {
                                     </button>
                               </div>
                               <div class="hidden md:flex md:items-center">
-                                    <a href="/dashboard" class="text-black-600 hover:text-black-900 mx-4">Dashboard</a>
-                                    <a href="/createBlog" class="text-black-600 hover:text-black-900 mx-4">Create blog</a>
-                                    <a href="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Logout</a>
-                              </div>
+                                    <Link to="/dashboard" class="text-black-600 hover:text-black-900 mx-4">Dashboard</Link>
+                                 <Link to="/createBlog" class="text-black-600 hover:text-black-900 mx-4">Create blog</Link>
+                                 <Link to="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Logout</Link>
+                           </div>
 
                         </div>
                   </div>
@@ -59,13 +59,13 @@ const GetUserBlogs = () => {
                                                       <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                                                 </div>
                                                 <div class="flex justify-end mt-4">
-                                                      <a href={`/blogs/${_id}/update`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
+                                                      <Link to={`/blogs/${_id}/update`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
                                                             Update
-                                                      </a>
-                                                      <a href={`/blogs/${_id}/delete`} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                                      </Link>
+                                                   <Link to={`/blogs/${_id}/delete`} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                                             Delete
-                                                      </a>
-                                                </div>
+                                                      </Link>
+                                             </div>
                                           </div>
                                     </div>
 

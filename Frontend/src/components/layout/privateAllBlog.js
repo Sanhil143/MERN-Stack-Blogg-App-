@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getBlogs } from "../../scripts/getBlogs";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -19,8 +19,15 @@ export default function PrivateBlog() {
       }, []);
 
       const handleLogout = () => {
-            localStorage.removeItem("token");
+            // localStorage.removeItem("token");
+            // history.push('/home');
+            // window.location.reload()
+            console.log('Logging out...');
+            localStorage.clear("token");
+            console.log('Token removed:', localStorage.getItem('token'));
             history.push('/home');
+            console.log('Redirecting to home...');
+            window.location.reload()
       }
       return (
 
@@ -30,7 +37,7 @@ export default function PrivateBlog() {
                   <div class="container mx-auto px-6 py-4">
                         <div class="flex items-center justify-between">
                               <div>
-                                    <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
+                                    <Link to="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</Link>
                               </div>
                               <div class="flex md:hidden">
                                     <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -40,9 +47,9 @@ export default function PrivateBlog() {
                                     </button>
                               </div>
                               <div class="hidden md:flex md:items-center">
-                                    <a href="/dashboard" class="text-black-600 hover:text-black-900 mx-4">Dashboard</a>
-                                    <a href="/userBlog" class="text-black-600 hover:text-black-900 mx-4">My blogs</a>
-                                    <a href="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Logout</a>
+                                    <Link to="/dashboard" class="text-black-600 hover:text-black-900 mx-4">Dashboard</Link>
+                                    <Link to="/userBlog" class="text-black-600 hover:text-black-900 mx-4">My blogs</Link>
+                                    <Link to="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Logout</Link>
                               </div>
 
                         </div>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { appConfig } from "../../config/config";
 import { useState } from "react";
-import { Redirect,useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, Redirect,useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CreateBlog = () => {
   const history = useHistory()
@@ -39,7 +39,7 @@ const CreateBlog = () => {
         <div class="container mx-auto px-6 py-4">
           <div class="flex items-center justify-between">
             <div>
-              <a href="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</a>
+              <Link to="http://www.linkedin.com/in/sanhilrai143" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania by Sanhil❤️</Link>
             </div>
             <div class="flex md:hidden">
               <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -49,17 +49,17 @@ const CreateBlog = () => {
               </button>
             </div>
             <div class="hidden md:flex md:items-center">
-              <a href="/userBlog" class="text-gray-600 hover:text-gray-900 mx-4">My blogs</a>
-              <a href="/dashboard" class="text-gray-600 hover:text-gray-900 mx-4">Dashboard</a>
-              <a href="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Log out</a>
+              <Link to="/userBlog" class="text-gray-600 hover:text-gray-900 mx-4">My blogs</Link>
+              <Link to="/dashboard" class="text-gray-600 hover:text-gray-900 mx-4">Dashboard</Link>
+              <Link to="#" onClick={handleLogout} class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4">Log out</Link>
             </div>
           </div>
         </div>
         <div class="hidden md:hidden">
           <div class="px-2 pt-2 pb-3">
-            <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Home</a>
-            <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">About</a>
-            <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Contact</a>
+            <Link to="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Home</Link>
+            <Link to="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">About</Link>
+            <Link to="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Contact</Link>
           </div>
         </div>
       </nav>

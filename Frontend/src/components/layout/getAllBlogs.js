@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getBlogs } from "../../scripts/getBlogs";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -17,10 +17,10 @@ export default function Blogs() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    <Redirect to="/home" />
-  }
+  // const handleLogout = () => {
+  //   localStorage.removeItem("token");
+  //   <Redirect to="/home" />
+  // }
   return (
 
 
@@ -29,7 +29,7 @@ export default function Blogs() {
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <div>
-            <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
+            <Link to="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</Link>
           </div>
           <div class="flex md:hidden">
             <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -39,9 +39,9 @@ export default function Blogs() {
             </button>
           </div>
           <div class="hidden md:flex md:items-center">
-            <a href="/home" class="text-gray-600 hover:text-gray-900 mx-4">Home</a>
-            <a href="/login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</a>
-            <a href="/register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</a>
+            <Link to="/home" class="text-gray-600 hover:text-gray-900 mx-4">Home</Link>
+            <Link to="/login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</Link>
+            <Link to="/register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</Link>
           </div>
 
         </div>

@@ -7,10 +7,20 @@ const Dashboard = () => {
   const { auth:{user} } = store.getState();
   console.log(user);
   let history = useHistory()
+
+
+  // const handleLogout = () => {
+  //     localStorage.removeItem("token");
+  //     history.push('/home');
+  // }
   const handleLogout = () => {
-      localStorage.removeItem("token");
-      history.push('/home');
-  }
+    console.log('Logging out...');
+    localStorage.clear("token");
+    console.log('Token removed:', localStorage.getItem('token'));
+    history.push('/home');
+    console.log('Redirecting to home...');
+    window.location.reload()
+}
   return (
     <>
       <div class="flex flex-col lg:flex-row h-screen bg-gray-100">

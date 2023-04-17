@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 const Homepage = () => {
+  
   return (
     <>
 
@@ -20,8 +21,8 @@ const Homepage = () => {
             </div>
             <div class="hidden md:flex md:items-center">
               <Link to="/blogs" class="text-gray-600 hover:text-gray-900 mx-4">Blogs</Link>
-              <Link to="/Login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</Link>
-              <Link to="/Register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</Link>
+              <Link to="/login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</Link>
+              <Link to="/register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</Link>
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const Navbar = () => {
       return(
             <>
@@ -5,7 +7,7 @@ const Navbar = () => {
   <div class="container mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <div>
-        <a href="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</a>
+        <Link to="#" class="text-lg font-bold text-gray-800 hover:text-gray-900">BlogMania❤️</Link>
       </div>
       <div class="flex md:hidden">
         <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -15,17 +17,17 @@ const Navbar = () => {
         </button>
       </div>
       <div class="hidden md:flex md:items-center">
-        <a href="/home" class="text-gray-600 hover:text-gray-900 mx-4">Home</a>
-        <a href="/Login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</a>
-        <a href="/Register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</a>
+        <Link to="/home" class="text-gray-600 hover:text-gray-900 mx-4">Home</Link>
+        <Link to="/Login" class="text-gray-600 hover:text-gray-900 mx-4">Log In</Link>
+        <Link to="/Register" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">Sign Up</Link>
       </div>
     </div>
   </div>
   <div class="hidden md:hidden">
     <div class="px-2 pt-2 pb-3">
-      <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Home</a>
-      <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">About</a>
-      <a href="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Contact</a>
+      <Link to="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Home</Link>
+      <Link to="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">About</Link>
+      <Link to="#" class="block text-gray-600 hover:text-gray-900 font-semibold mb-2">Contact</Link>
     </div>
   </div>
 </nav>
