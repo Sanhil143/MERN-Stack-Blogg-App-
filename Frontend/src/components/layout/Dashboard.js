@@ -12,18 +12,10 @@ const Dashboard = () => {
 
   let history = useHistory()
 
-
-  // const handleLogout = () => {
-  //     localStorage.removeItem("token");
-  //     history.push('/home');
-  // }
   const handleLogout = () => {
-    console.log('Logging out...');
     localStorage.clear("token");
-    console.log('Token removed:', localStorage.getItem('token'));
-    history.push('/home');
-    console.log('Redirecting to home...');
-    // window.location.reload()
+    // history.push('/home');
+    window.location.replace('/home')
   }
   return (
     <>

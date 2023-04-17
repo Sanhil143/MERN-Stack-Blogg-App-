@@ -14,12 +14,7 @@ export default function Blogs() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  // const handleLogout = () => {
-  //   localStorage.removeItem("token");
-  //   <Redirect to="/home" />
-  // }
-
+  
   return (
     <div className="flex flex-col items-center justify-center">
 

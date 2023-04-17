@@ -30,9 +30,9 @@ const CreateBlog = () => {
 
   }
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    // <Redirect to="/" />
-    history.push('/')
+    localStorage.clear("token");
+    // history.push('/home');
+    window.location.replace('/home')
   }
   return (
     <>
