@@ -14,6 +14,9 @@ const blogSchema = new mongoose.Schema({
             type: String,
             required: true
       },
+      developedBy:{
+            type:String,
+      },
       blog:{
             type:String,
             required:true

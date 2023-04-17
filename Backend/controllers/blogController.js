@@ -27,6 +27,11 @@ class BlogController extends baseController {
             }
             data.blog = blog.toLowerCase()
             data.userId = req.userId;
+            let check = await userModel.findOne({_id:data.userId, isDeleted:false})
+            if(!check){
+                  return res.status(400).send({status:false, message:'Bad Request'})
+            }
+            data.developedBy = check.firstName;
             let savedData = await blogModel.create(data);
             return res.status(201).send({ status: true, message: 'blog create successfully!', data: savedData })
       }
