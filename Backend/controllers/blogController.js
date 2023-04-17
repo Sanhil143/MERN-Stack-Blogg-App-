@@ -31,7 +31,7 @@ class BlogController extends baseController {
             if(!check){
                   return res.status(400).send({status:false, message:'Bad Request'})
             }
-            data.developedBy = check.firstName;
+            data.developedBy = check.firstName + " " + check.lastName
             let savedData = await blogModel.create(data);
             return res.status(201).send({ status: true, message: 'blog create successfully!', data: savedData })
       }
