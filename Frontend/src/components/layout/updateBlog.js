@@ -13,6 +13,7 @@ const UpdateBlog = () => {
 
   const [title, setTitle] = useState("")
   const [category, setCategory] = useState("")
+  const [blog, setBlog] = useState("")
   let token = localStorage.getItem("token")
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const UpdateBlog = () => {
     const newData = {}
     newData.title = title
     newData.category = category
+    newData.blog = blog
     axios.put(`${appConfig.API_URL}/blogs/${blogId}`, newData, {
       headers: { "x-auth-key": token }
     })
@@ -74,6 +76,20 @@ const UpdateBlog = () => {
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="category">
+            Blog
+            </label>
+            <input
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              placeholder="blog"
+              name="blog"
+              value={blog}
+              onChange={(e) => setBlog(e.target.value)}
               required
             />
           </div>

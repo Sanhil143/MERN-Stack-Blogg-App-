@@ -44,7 +44,7 @@ const GetUserBlogs = () => {
                   </div>
                   {blogs.length > 0 &&
                         blogs.map((post) => {
-                              const { title, category, _id } = post;
+                              const { title, category,blog, _id } = post;
                               return (
                                     <div key={Math.random()}>
                                           <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -53,6 +53,7 @@ const GetUserBlogs = () => {
                                                             <div>
                                                                   <div className="font-bold text-xl">{title}</div>
                                                                   <p className="text-gray-700 text-base">{category}</p>
+                                                                  <p className="text-gray-700 text-base">{blog}</p>
                                                             </div>
                                                       </div>
                                                       {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}

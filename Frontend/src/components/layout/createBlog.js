@@ -8,6 +8,7 @@ const CreateBlog = () => {
   const history = useHistory()
   const [title, setTitle] = useState("")
   const [category, setCategory] = useState("")
+  const [blog, setBlog] = useState("")
 
   const createBlog = async (e) => {
     e.preventDefault()
@@ -16,6 +17,7 @@ const CreateBlog = () => {
 
     blogData.title = title;
     blogData.category = category;
+    blogData.blog = blog;
 
     await axios.post(`${appConfig.API_URL}/blogs/createBlogs`, blogData,
       { headers: { "x-auth-key": token } })
@@ -102,6 +104,23 @@ const CreateBlog = () => {
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="email"
+            >
+              blog
+            </label>
+            <input
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              placeholder="blog"
+              name="blog"
+              value={blog}
+              onChange={(e) => setBlog(e.target.value)}
               required
             />
           </div>

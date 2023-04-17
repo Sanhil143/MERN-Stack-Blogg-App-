@@ -57,7 +57,7 @@ export default function PrivateBlog() {
 
                   {blogs.length > 0 &&
                         blogs.map((post) => {
-                              const { title, category, comments } = post;
+                              const { title, category, blog,comments } = post;
                               return (
                                     <div key={Math.random()}>
                                           <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -66,6 +66,7 @@ export default function PrivateBlog() {
                                                             <div>
                                                                   <div className="font-bold text-xl">{title}</div>
                                                                   <p className="text-gray-700 text-base">{category}</p>
+                                                                  <p className="text-gray-700 text-base">{blog}</p>
                                                                   <p className="text-gray-700 text-base">comments: {comments}</p>
                                                             </div>
                                                       </div>
