@@ -50,7 +50,7 @@ class BlogController extends baseController {
             if (!checkId || checkId == null) {
                   return res.status(403).send({ status: false, message: 'Authorisation denied' })
             }
-            const { title, category } = data;
+            const { title, category, blog } = data;
             if (title !== undefined) {
                   data.title = title.toLowerCase();
             }
