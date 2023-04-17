@@ -27,7 +27,7 @@ export default function PrivateBlog() {
             console.log('Token removed:', localStorage.getItem('token'));
             history.push('/home');
             console.log('Redirecting to home...');
-            window.location.reload()
+            // window.location.reload()
       }
       return (
 
