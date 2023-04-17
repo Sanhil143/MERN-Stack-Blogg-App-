@@ -53,7 +53,7 @@ export default function Blogs() {
                     <p className="text-gray-700 text-base">comments: {comments}</p>
                   </div>
                 </div>
-                <p className="text-gray-700 text-base">Developed by {developedBy}❤️</p>
+                <p className="text-gray-700 text-base">Created by {developedBy}❤️</p>
               </div>
             </div>
           );

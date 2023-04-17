@@ -65,7 +65,7 @@ export default function PrivateBlog() {
                                                                   </div>
                                                             </div>
                                                             {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
-                                                            <p className="text-gray-700 text-base">Developed by {developedBy}❤️</p>
+                                                            <p className="text-gray-700 text-base">Created by {developedBy}❤️</p>
                                                       </div>
 
                                                 </div>

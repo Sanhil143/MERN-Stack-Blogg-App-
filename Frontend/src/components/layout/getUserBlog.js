@@ -60,7 +60,7 @@ const GetUserBlogs = () => {
                                                                   </div>
                                                             </div>
                                                             {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
-                                                            <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
+                                                            <p className="text-gray-700 text-base">Created by BlogMania❤️</p>
                                                       </div>
                                                       <div class="flex justify-center mt-4">
                                                             <Link to={`/blogs/${_id}/update`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
