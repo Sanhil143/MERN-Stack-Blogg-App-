@@ -23,7 +23,7 @@ export default function PrivateBlog() {
             // history.push('/home');
             // window.location.reload()
             console.log('Logging out...');
-            localStorage.clear("token");
+            localStorage.removeItem("token");
             console.log('Token removed:', localStorage.getItem('token'));
             history.push('/home');
             console.log('Redirecting to home...');
@@ -33,7 +33,7 @@ export default function PrivateBlog() {
 
 
             <div>
-
+<div className="flex flex-col items-center justify-center">
                   <div class="container mx-auto px-6 py-4">
                         <div class="flex items-center justify-between">
                               <div>
@@ -57,7 +57,7 @@ export default function PrivateBlog() {
 
                   {blogs.length > 0 &&
                         blogs.map((post) => {
-                              const { title, category, blog,comments } = post;
+                              const { title, category, blog,developedBy,comments } = post;
                               return (
                                     <div key={Math.random()}>
                                           <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -71,7 +71,7 @@ export default function PrivateBlog() {
                                                             </div>
                                                       </div>
                                                       {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
-                                                      <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
+                                                      <p className="text-gray-700 text-base">Developed by {developedBy}❤️</p>
                                                 </div>
 
                                           </div>
@@ -81,7 +81,8 @@ export default function PrivateBlog() {
                               );
                         })}
 
-
+</div>
             </div>
       );
 }
+

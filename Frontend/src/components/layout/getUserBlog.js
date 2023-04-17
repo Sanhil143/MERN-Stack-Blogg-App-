@@ -22,6 +22,8 @@ const GetUserBlogs = () => {
 
       return (
             <>
+<div className="flex flex-col items-center justify-center">
+            
                   <div class="container mx-auto px-6 py-4">
                         <div class="flex items-center justify-between">
                               <div>
@@ -59,7 +61,7 @@ const GetUserBlogs = () => {
                                                       {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
                                                       <p className="text-gray-700 text-base">Developed by BlogMania❤️</p>
                                                 </div>
-                                                <div class="flex justify-end mt-4">
+                                                <div class="flex justify-center mt-4">
                                                       <Link to={`/blogs/${_id}/update`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">
                                                             Update
                                                       </Link>
@@ -73,6 +75,7 @@ const GetUserBlogs = () => {
 
                               );
                         })};
+                        </div>
             </>
       )
 }

@@ -1,11 +1,15 @@
 
-import { Link, Redirect,useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, Redirect, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import store from "../../store";
 
 
 const Dashboard = () => {
-  const { auth:{user} } = store.getState();
-  console.log(user);
+  const { auth: { user } } = store.getState();
+
+  const firstName = user?.data?.firstName || '';
+  const lastName = user?.data?.lastName || '';
+  const email = user?.data?.email || '';
+
   let history = useHistory()
 
 
@@ -20,7 +24,7 @@ const Dashboard = () => {
     history.push('/home');
     console.log('Redirecting to home...');
     // window.location.reload()
-}
+  }
   return (
     <>
       <div class="flex flex-col lg:flex-row h-screen bg-gray-100">
@@ -44,12 +48,12 @@ const Dashboard = () => {
           <h1 class="text-2xl font-bold mb-8">My profile</h1>
           <div class="flex flex-col lg:flex-row gap-8">
             <div class="bg-white shadow-md p-6 flex-1">
-              <h2 class="text-lg font-bold mb-4">Hello🤡</h2>
+              <h2 class="text-lg font-bold mb-4">Hello {firstName} welcome to blogMania❤️</h2>
               <p class="text-2xl font-bold"></p>
-              
+
             </div>
-            
-            
+
+
           </div>
         </div>
       </div>
