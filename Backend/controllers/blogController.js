@@ -12,7 +12,7 @@ class BlogController extends baseController {
       async createBlog(req, res) {
             let data = req.body;
 
-            const { title, category } = data;
+            const { title, category,blog } = data;
 
             if (!title) {
                   return res.status(400).send({ status: false, message: 'title is required' });
@@ -22,6 +22,10 @@ class BlogController extends baseController {
                   return res.status(400).send({ status: false, message: 'category is required' });
             }
             data.category = category.toLowerCase()
+            if (!blog) {
+                  return res.status(400).send({ status: false, message: 'blog is required' });
+            }
+            data.blog = blog.toLowerCase()
             data.userId = req.userId;
             let savedData = await blogModel.create(data);
             return res.status(201).send({ status: true, message: 'blog create successfully!', data: savedData })
@@ -47,6 +51,9 @@ class BlogController extends baseController {
             }
             if (category !== undefined) {
                   data.category = category.toLowerCase();
+            }
+            if (blog !== undefined) {
+                  data.blog = blog.toLowerCase();
             }
             let updateData = await blogModel.findByIdAndUpdate({ _id: blogId, isDeleted: false }, { $set: { ...data } }, { new: true });
             if (updateData == null) {

@@ -14,6 +14,10 @@ const blogSchema = new mongoose.Schema({
             type: String,
             required: true
       },
+      blog:{
+            type:String,
+            required:true
+      },
       comments:{
             type:Number,
             default:0
