@@ -12,6 +12,7 @@ const GetUserBlogs = () => {
             UserBlogs()
                   .then((res) => {
                         setBlogs(res.data.data);
+                       
                   })
                   .catch((err) => console.log(err))
       }, []);
@@ -47,7 +48,7 @@ const GetUserBlogs = () => {
                         </div>
                         {blogs.length > 0 &&
                               blogs.map((post) => {
-                                    const { title, category, blog, _id } = post;
+                                    const { title, category, blog,developedBy, _id } = post;
                                     return (
                                           <div key={Math.random()}>
                                                 <div className="max-w-md rounded overflow-hidden shadow-lg">
@@ -60,7 +61,7 @@ const GetUserBlogs = () => {
                                                                   </div>
                                                             </div>
                                                             {/* <p class="text-gray-700 mb-4">Published on <span class="font-bold">{publishedAt}</span></p> */}
-                                                            <p className="text-gray-700 text-base">Created by BlogMania❤️</p>
+                                                            <p className="text-gray-700 text-base">Created by {developedBy}❤️</p>
                                                       </div>
                                                       <div class="flex justify-center mt-4">
                                                             <Link to={`/blogs/${_id}/update`} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded focus:outline-none focus:shadow-outline">

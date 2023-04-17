@@ -19,12 +19,19 @@ class UserController extends BaseController {
       if (!firstName) {
         return res.status(400).send({ status: false, message: "please enter your Firstname!" });
       }
+      if(firstName != undefined){
+        firstName.trim()
+      }
       if (!lastName) {
         return res.status(400).send({ status: false, message: "please enter your Lastname!" });
+      }
+      if(lastName != undefined){
+        lastName.trim()
       }
       if (!email) {
         return res.status(400).send({ status: false, message: "please enter your email!" });
       }
+      // email.toLowerCase()
       let verifyEmail = await userModel.findOne({ email: email });
       if (verifyEmail) {
         return res.status(400).send({ status: false, message: "email is already in use, please enter another!" });
