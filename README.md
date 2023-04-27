@@ -1,1 +1,1 @@
-# Blog Fullstack Application By Sanhil ❤️
+#  Fullstack Blog Application By Sanhil ❤️
