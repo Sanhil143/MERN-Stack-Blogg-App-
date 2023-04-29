@@ -7,7 +7,6 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT,
 } from "./types";
 
 import setAuthToken from "../utils/setAuthToken";
@@ -95,3 +94,26 @@ export const login = (email, password) => async (dispatch) => {
 //   localStorage.removeItem("token")
 //   dispatch({ type: LOGOUT });  
 // };
+
+
+// import axios from 'axios';
+
+// const login = async (email, password) => {
+//   const config = {
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   };
+
+//   const body = JSON.stringify({ email, password });
+
+//   try {
+//     const res = await axios.post(`${appConfig.API_URL}/users/signin`, body, config);
+//     localStorage.setItem('token', res.data.token); // set the token in local storage
+//     return res.data;
+//   } catch (err) {
+//     throw err.response.data.msg;
+//   }
+// };
+
+// export { login };
