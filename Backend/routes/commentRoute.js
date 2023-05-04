@@ -25,6 +25,13 @@ router.put('/:blogId/:commentId' , commentController.updateComment.bind())
  */
 router.delete('/:blogId/:commentId', commentController.deleteComment.bind())
 
+/**
+ * @route        GET
+ * @description  fetch comment
+ * @access       Public
+ */
+router.get('/getComment', commentController.getComment.bind());
+
 
 
 module.exports = router;

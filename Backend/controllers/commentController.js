@@ -134,6 +134,15 @@ class CommentController extends baseController {
                   return res.status(500).send({ status: false, message: err.message })
             }
       }
+
+      async getComment(req,res){
+            try {
+                  let commentData = await commentModel.find({isDeleted:false}).sort({createdAt:-1})
+                  return res.status(200).send({status:true, data:commentData});
+            } catch (err) {
+                  return res.status(500).send({status:false, message: err.message});
+            }
+      }
 }
 
 
