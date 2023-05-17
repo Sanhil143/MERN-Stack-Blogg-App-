@@ -22,6 +22,7 @@ import UpdateBlog from "./components/layout/updateBlog";
 import DeleteBlog from "./components/layout/deleteBlog";
 import GetUserBlogs from "./components/layout/getUserBlog";
 import PrivateBlog from "./components/layout/privateAllBlog";
+import { commentBlog } from "./scripts/commentBlog";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/home" component={HomePage} />
             <Route exact path="/nav" component={Navbar} />
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/comment" component={commentBlog} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/blogs" component={Blogs} />
             <PrivateRoute exact path="/createBlog" component={CreateBlog} />
